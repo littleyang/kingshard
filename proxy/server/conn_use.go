@@ -17,8 +17,8 @@ package server
 import (
 	"fmt"
 
-	"github.com/flike/kingshard/mysql"
-	"github.com/flike/kingshard/sqlparser"
+	"pirate-sharding/mysql"
+	"pirate-sharding/sqlparser"
 )
 
 func (c *ClientConn) handleUseDB(stmt *sqlparser.UseDB) error {

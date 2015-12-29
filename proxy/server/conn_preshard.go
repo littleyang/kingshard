@@ -18,11 +18,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/flike/kingshard/backend"
-	"github.com/flike/kingshard/core/errors"
-	"github.com/flike/kingshard/core/golog"
-	"github.com/flike/kingshard/mysql"
-	"github.com/flike/kingshard/sqlparser"
+	"pirate-sharding/backend"
+	"pirate-sharding/core/errors"
+	"pirate-sharding/core/golog"
+	"pirate-sharding/mysql"
+	"pirate-sharding/sqlparser"
 )
 
 type ExecuteDB struct {

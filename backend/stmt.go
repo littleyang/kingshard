@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"math"
 
-	"github.com/flike/kingshard/mysql"
+	"pirate-sharding/mysql"
 )
 
 type Stmt struct {

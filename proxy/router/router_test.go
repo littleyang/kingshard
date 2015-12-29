@@ -18,9 +18,9 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/flike/kingshard/config"
-	"github.com/flike/kingshard/core/yaml"
-	"github.com/flike/kingshard/sqlparser"
+	"pirate-sharding/config"
+	"pirate-sharding/core/yaml"
+	"pirate-sharding/sqlparser"
 )
 
 func TestParseRule(t *testing.T) {

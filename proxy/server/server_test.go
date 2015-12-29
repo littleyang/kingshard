@@ -19,8 +19,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/flike/kingshard/backend"
-	"github.com/flike/kingshard/config"
+	"pirate-sharding/backend"
+	"pirate-sharding/config"
 )
 
 var testServerOnce sync.Once

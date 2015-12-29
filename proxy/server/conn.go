@@ -22,10 +22,10 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/flike/kingshard/backend"
-	"github.com/flike/kingshard/core/golog"
-	"github.com/flike/kingshard/core/hack"
-	"github.com/flike/kingshard/mysql"
+	"pirate-sharding/backend"
+	"pirate-sharding/core/golog"
+	"pirate-sharding/core/hack"
+	"pirate-sharding/mysql"
 )
 
 //client <-> proxy

@@ -15,8 +15,8 @@
 package server
 
 import (
-	"github.com/flike/kingshard/backend"
-	"github.com/flike/kingshard/mysql"
+	"pirate-sharding/backend"
+	"pirate-sharding/mysql"
 )
 
 func (c *ClientConn) isInTransaction() bool {

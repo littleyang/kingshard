@@ -17,7 +17,7 @@ package backend
 import (
 	"testing"
 
-	"github.com/flike/kingshard/config"
+	"pirate-sharding/config"
 )
 
 func TestParse(t *testing.T) {

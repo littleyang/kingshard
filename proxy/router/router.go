@@ -18,10 +18,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/flike/kingshard/config"
-	"github.com/flike/kingshard/core/errors"
-	"github.com/flike/kingshard/core/golog"
-	"github.com/flike/kingshard/sqlparser"
+	"pirate-sharding/config"
+	"pirate-sharding/core/errors"
+	"pirate-sharding/core/golog"
+	"pirate-sharding/sqlparser"
 )
 
 var (

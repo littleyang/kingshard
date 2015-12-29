@@ -20,10 +20,10 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/flike/kingshard/core/golog"
-	"github.com/flike/kingshard/core/hack"
-	"github.com/flike/kingshard/mysql"
-	"github.com/flike/kingshard/sqlparser"
+	"pirate-sharding/core/golog"
+	"pirate-sharding/core/hack"
+	"pirate-sharding/mysql"
+	"pirate-sharding/sqlparser"
 )
 
 const (

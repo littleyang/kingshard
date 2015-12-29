@@ -24,9 +24,9 @@ import (
 	"strings"
 	"syscall"
 
-	"github.com/littleyang/kingshard/config"
-	"github.com/littleyang/kingshard/core/golog"
-	"github.com/littleyang/kingshard/proxy/server"
+	"pirate-sharding/config"
+	"pirate-sharding/core/golog"
+	"pirate-sharding/proxy/server"
 )
 
 var configFile *string = flag.String("config", "/etc/kingshard.conf", "kingshard config file")

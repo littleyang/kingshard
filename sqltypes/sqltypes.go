@@ -27,7 +27,7 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/flike/kingshard/core/hack"
+	"pirate-sharding/core/hack"
 )
 
 var (
