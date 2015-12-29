@@ -29,7 +29,7 @@ import (
 	"pirate-sharding/proxy/server"
 )
 
-var configFile *string = flag.String("config", "/etc/kingshard.conf", "kingshard config file")
+var configFile *string = flag.String("config", "/etc/piratesharding.conf", "kingshard config file")
 var logLevel *string = flag.String("log-level", "", "log level [debug|info|warn|error], default error")
 
 const (

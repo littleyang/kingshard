@@ -1,9 +1,9 @@
 all: build
 
-build: kingshard
+build: piratesharding
 
-kingshard:
-	go build -o bin/kingshard ./cmd/kingshard
+piratesharding:
+	go build -o bin/piratesharding ./cmd/piratesharding
 
 clean:
 	@rm -rf bin
