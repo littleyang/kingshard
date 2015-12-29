@@ -22,12 +22,12 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/flike/kingshard/mysql"
+	"github.com/littleyang/kingshard/mysql"
 
-	"github.com/flike/kingshard/backend"
-	"github.com/flike/kingshard/config"
-	"github.com/flike/kingshard/core/golog"
-	"github.com/flike/kingshard/proxy/router"
+	"github.com/littleyang/kingshard/backend"
+	"github.com/littleyang/kingshard/config"
+	"github.com/littleyang/kingshard/core/golog"
+	"github.com/littleyang/kingshard/proxy/router"
 )
 
 type Schema struct {

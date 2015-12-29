@@ -17,7 +17,7 @@ package config
 import (
 	"io/ioutil"
 
-	"github.com/flike/kingshard/core/yaml"
+	"github.com/littleyang/kingshard/core/yaml"
 )
 
 //整个config文件对应的结构
