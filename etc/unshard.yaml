@@ -1,47 +1,94 @@
-# server listen addr
-addr : 0.0.0.0:9696
+# 监听地址
+addr : 127.0.0.1:9696
 
-# server user and password
-user :  kingshard
-password : kingshard
+# username and password
+user :  falcon
+password : falcon
 
-#if set log_path, the sql log will write into log_path/sql.log,the system log
-#will write into log_path/sys.log
-#log_path : /Users/flike/log
+# log级别，[debug|info|warn|error],默认是error
+log_level : info
 
-# log level[debug|info|warn|error],default error
-log_level : debug
-#if set log_sql(on|off) off,the sql log will not output
-log_sql: off
-#only log the query that take more than slow_log_time ms
-#slow_log_time : 100
-# only allow this ip list ip to connect kingshard
-#allow_ips: 127.0.0.1
+# 打开SQL日志，设置为on
+# 关闭SQL日志，设置为off
+log_sql : on
 
-# node is an agenda for real remote mysql server.
+# 如果设置了该项，则只输出SQL执行时间超过slow_log_time(ms)的SQL日志，
+# 不设置则输出全部SQL日志
+# 慢查询的日志输出时间
+slow_log_time : 100
+
+#日志文件路径，如果不配置则会输出到终端。
+log_path : /Users/yangyang/log
+# 只允许下面的IP列表连接proxy，如果不配置则对连接proxy的IP不做限制。
+# allow_ips: 127.0.0.1
+
+# 一个node节点表示mysql集群的一个数据分片，包括一主多从（可以不配置从库）
 nodes :
 -
-    name : node1
+    # node节点名字
+    name : falcon-test-master
+    
+    # 连接池中最大的空闲连接数，也就是kingshard最多与后端DB建立max_conns_limit个连接
+    max_conns_limit : 100
 
-    # default max conns for mysql server
-    max_conns_limit : 8
+    # proxy连接该node中mysql的用户名和密码，master和slave的用户名和密码必须一致
+    user :  falcon
+    password : falcon
+    
+    # master的地址和端口
+    master : 10.0.72.52:3306
 
-    # all mysql in a node must have the same user and password
-    user :  kingshard
-    password : kingshard
+    # slave的地址和端口，可不配置
+    # slave : 192.168.0.12@2,192.168.0.13@3
+    
+    #proxy在300秒内都连接不上mysql，proxy则会下线该mysql
+    down_after_noalive : 300
 
-    # master represents a real mysql master server
-    master : 127.0.0.1:3306
+# -
+    # name : node2
+    # max_conns_limit : 16
+    # user :  kingshard
+    # password : kingshard
+    # master : 192.168.59.103:3307
+    # slave :
+    # down_after_noalive: 100
 
-    # slave represents a real mysql salve server,and the number after '@' is
-    # read load weight of this slave.
-    slave :
-    down_after_noalive : 32
-
-# schema defines which db can be used by client and this db's sql will be executed in which nodes, the db is also the default database
+# 分表规则
 schema :
-    db : kingshard
-    nodes: [node1]
-    default: node1
-    shard:
-    -
+    # 分表使用的db，所有的分表必须都在这个db中。
+    db : falcon
+    
+    # 分表分布的node名字
+    nodes: [falcon-test-master]
+    
+    # 有未分表的SQL，都会发往默认node。
+    default: falcon-test-master
+    
+    #shard:
+    #-
+    #   # 表名字
+    #    table: test_shard_hash
+    #    # 分表字段
+    #    key: id
+    #    # 分表分布的nodes
+    #    nodes: [falcon-test-master]
+    #    # 分表类型
+    #    type: hash
+    #    # 子表个数分布，表示node1有4个子表，
+    #    # node2有4个子表。
+    #    locations: [4,4]
+    #-
+    #    # 分表名字
+    #    table: test_shard_range
+    #    # 分表字段
+    #    key: id
+    #    # 分表类型
+    #    type: range
+    #    # 分表分布的nodes
+    #    nodes: [falcon-test-master]
+    #    # 子表个数分布，表示node1有4个子表，
+    #    # node2有4个子表。
+    #    locations: [4,4]
+    #    # 表示每个子表包含的最大记录数，也就是说每
+    #    # 个子表最多包好10000条记录。即子表1对应的id为[0,10000),子表2[10000,20000)
+    #    ble_row_limit: 10000000
